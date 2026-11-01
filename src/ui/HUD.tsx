@@ -141,10 +141,10 @@ const ONBOARDING: { text: string; done: (s: ReturnType<typeof useGame.getState>)
 
 function fitNextStage() {
   const s = useGame.getState();
-  const next = nextSteps(ctxOf(s));
-  if (!next.length) return s.toast('Every socket is filled', 'good');
-  const stage = TEMPLATE.sockets[next[0]].stage;
   const kit = TEMPLATE.kits.A.sockets;
+  const next = nextSteps(ctxOf(s)).filter((n) => kit[n]);
+  if (!next.length) return s.toast('Kit A is fully fitted', 'good');
+  const stage = TEMPLATE.sockets[next[0]].stage;
   let fitted = 0;
   for (const sock of next.filter((n) => TEMPLATE.sockets[n].stage === stage)) {
     if (kit[sock] && useGame.getState().attach(sock, kit[sock])) fitted++;

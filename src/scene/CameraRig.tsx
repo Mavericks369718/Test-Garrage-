@@ -52,6 +52,7 @@ export function CameraRig() {
   const station = useGame((s) => s.car.station);
   const gameMode = useGame((s) => s.mode);
   const keys = useRef<Record<string, boolean>>({});
+  if (import.meta.env.DEV) (window as unknown as { __cam: THREE.Camera }).__cam = camera;
 
   const flyTo = (pos: THREE.Vector3, target: THREE.Vector3, dur: number, ease: (t: number) => number) => {
     const c = controls.current;
@@ -68,7 +69,7 @@ export function CameraRig() {
     if (!z) return;
     if (mode === 'dyno') {
       const p = STATION_POS.dyno;
-      flyTo(new THREE.Vector3(p[0] + 4.6, 1.0, p[2]), new THREE.Vector3(p[0], 0.6, p[2]), 700, easeInOutCubic);
+      flyTo(new THREE.Vector3(p[0] - 6.2, 1.15, p[2]), new THREE.Vector3(p[0], 0.6, p[2]), 700, easeInOutCubic);
       return;
     }
     const liftY = z.station === 'lift' ? 0 : 0;
@@ -133,6 +134,7 @@ export function CameraRig() {
       camera.position.y = 1.7;
     }
     c?.update();
+    if (import.meta.env.DEV) (window as unknown as { __ctl: unknown }).__ctl = c;
   });
 
   if (mode === 'walk' && !isMobile()) {

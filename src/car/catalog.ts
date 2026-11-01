@@ -105,6 +105,17 @@ export interface CarTemplate {
 export const PARTS: Part[] = (partsJson as { parts: Part[] }).parts;
 export const PART_BY_ID: Record<string, Part> = Object.fromEntries(PARTS.map((p) => [p.id, p]));
 
+/**
+ * After the asset pipeline runs, prefer its (clamped) masses for parts whose GLB matches by exact id.
+ * Engines keep the gameplay table masses.
+ */
+export function applyManifestMasses(assets: { id: string; mass: number }[]) {
+  for (const a of assets) {
+    const p = PART_BY_ID[a.id];
+    if (p && a.mass > 0 && !p.stats.engine) p.mass = +a.mass.toFixed(1);
+  }
+}
+
 const LAB_KEY = 'torque-house:lab-overrides';
 function loadTemplate(): CarTemplate {
   const t = structuredClone(templateJson) as unknown as CarTemplate;

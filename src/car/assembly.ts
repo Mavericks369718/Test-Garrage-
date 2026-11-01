@@ -23,11 +23,13 @@ export interface Verdict {
 
 const OK: Verdict = { ok: true };
 const no = (reason: string): Verdict => ({ ok: false, reason });
+/** 'Brake FL' → 'brake FL' (keeps corner codes readable). */
+const lc = (label: string) => label.charAt(0).toLowerCase() + label.slice(1);
 
 function isBlockedByClosedPanel(ctx: AssemblyContext, socket: string): Verdict {
   const s = TEMPLATE.sockets[socket];
   if (s.blockedBy && ctx.sockets[s.blockedBy] && (ctx.hinges[s.blockedBy] ?? 0) < 0.6) {
-    return no(`Open the ${TEMPLATE.sockets[s.blockedBy].label.toLowerCase()} first`);
+    return no(`Open the ${lc(TEMPLATE.sockets[s.blockedBy].label)} first`);
   }
   return OK;
 }
@@ -37,13 +39,13 @@ export function canAttach(ctx: AssemblyContext, socket: string, partId: string):
   const s = TEMPLATE.sockets[socket];
   const part: Part | undefined = PART_BY_ID[partId];
   if (!s || !part) return no('Unknown part');
-  if (part.slot !== s.slot) return no(`${part.name} doesn't fit ${s.label.toLowerCase()}`);
+  if (part.slot !== s.slot) return no(`${part.name} doesn't fit ${lc(s.label)}`);
   for (const req of s.requires) {
-    if (!ctx.sockets[req]) return no(`Fit ${TEMPLATE.sockets[req].label.toLowerCase()} first`);
+    if (!ctx.sockets[req]) return no(`Fit ${lc(TEMPLATE.sockets[req].label)} first`);
   }
   const blocked = isBlockedByClosedPanel(ctx, socket);
   if (!blocked.ok) return blocked;
-  if (s.tool && !ctx.tools[s.tool]) return no(`Needs the ${TOOL_LABEL[s.tool].toLowerCase()}`);
+  if (s.tool && !ctx.tools[s.tool]) return no(`Needs the ${lc(TOOL_LABEL[s.tool])}`);
 
   const engine = ctx.sockets.engine_bay ? PART_BY_ID[ctx.sockets.engine_bay]?.stats.engine : undefined;
   const isEv = engine?.kind === 'ev';
@@ -68,11 +70,11 @@ export function dependents(socket: string): string[] {
 export function canRemove(ctx: AssemblyContext, socket: string): Verdict {
   if (!ctx.sockets[socket]) return no('Nothing fitted');
   const blocking = dependents(socket).filter((d) => ctx.sockets[d]);
-  if (blocking.length) return no(`Remove ${TEMPLATE.sockets[blocking[0]].label.toLowerCase()} first`);
+  if (blocking.length) return no(`Remove ${lc(TEMPLATE.sockets[blocking[0]].label)} first`);
   const blocked = isBlockedByClosedPanel(ctx, socket);
   if (!blocked.ok) return blocked;
   const tool = TEMPLATE.sockets[socket].tool;
-  if (tool && !ctx.tools[tool]) return no(`Needs the ${TOOL_LABEL[tool].toLowerCase()}`);
+  if (tool && !ctx.tools[tool]) return no(`Needs the ${lc(TOOL_LABEL[tool])}`);
   return OK;
 }
 
@@ -81,7 +83,7 @@ export function canSwap(ctx: AssemblyContext, socket: string): Verdict {
   const blocked = isBlockedByClosedPanel(ctx, socket);
   if (!blocked.ok) return blocked;
   const s = TEMPLATE.sockets[socket];
-  if (s.tool && !ctx.tools[s.tool]) return no(`Needs the ${TOOL_LABEL[s.tool].toLowerCase()}`);
+  if (s.tool && !ctx.tools[s.tool]) return no(`Needs the ${lc(TOOL_LABEL[s.tool])}`);
   if (s.slot === 'wheel' && !ctx.tools.tireChanger) return no('Tyre swap needs the tyre changer');
   return OK;
 }

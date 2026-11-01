@@ -1,8 +1,7 @@
-import { Suspense, useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { Canvas, useThree, useFrame } from '@react-three/fiber';
 import { AdaptiveDpr, Bvh, PerformanceMonitor, Preload } from '@react-three/drei';
 import * as THREE from 'three';
-import { Perf } from 'r3f-perf';
 import { CarRig } from '../car/CarRig';
 import { initLoaders } from '../assets/loader';
 import { useGame } from '../store/game';
@@ -13,6 +12,9 @@ import { Lighting } from './Lighting';
 import { LooseParts, PhysicsWorld } from './Physics';
 import { Exterior, Floor, Roof, Walls } from './Shell';
 import { ZoneManager, ZONES, isMobile } from './Zones';
+
+// r3f-perf only downloads with ?debug.
+const Perf = lazy(() => import('r3f-perf').then((m) => ({ default: m.Perf })));
 
 export const DEBUG = typeof location !== 'undefined' && new URLSearchParams(location.search).has('debug');
 
@@ -99,7 +101,9 @@ export function Garage() {
         <DynoController />
         {DEBUG && (
           <>
-            <Perf position="top-left" minimal={mobile} />
+            <Suspense fallback={null}>
+              <Perf position="top-left" minimal={mobile} />
+            </Suspense>
             <ZoneTriCounter onUpdate={setZoneTris} />
           </>
         )}

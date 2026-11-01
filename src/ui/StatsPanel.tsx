@@ -32,8 +32,9 @@ export function StatsPanel({ compact }: { compact?: boolean }) {
     <section className={`panel stats ${collapsed ? 'collapsed' : ''}`}>
       <header onClick={() => setCollapsed(!collapsed)}>
         <span>Build sheet</span>
-        <span className="mono dim">{st.driveable ? 'ROADWORTHY' : `MISSING: ${st.missing.join(', ').toUpperCase()}`}</span>
+        <span className={`pill ${st.driveable ? 'good' : 'warn'}`}>{st.driveable ? 'roadworthy' : 'incomplete'}</span>
       </header>
+      {!collapsed && !st.driveable && <div className="missing mono">needs: {st.missing.join(' · ')}</div>}
       {!collapsed && (
         <div className="stat-grid">
           <Row k="hp" label="Power" value={fmt(st.hp, 0, ' hp')} sub={st.hp ? ` @ ${st.hpRpm}` : ''} />

@@ -1,3 +1,5 @@
+import { applyManifestMasses } from '../car/catalog';
+
 export interface AssetEntry {
   id: string;
   category: string;
@@ -34,6 +36,7 @@ export async function loadManifest(): Promise<Manifest> {
   }
   byId.clear();
   for (const a of manifest.assets) byId.set(a.id, a);
+  applyManifestMasses(manifest.assets);
   return manifest;
 }
 
