@@ -1,0 +1,1102 @@
+{
+ "$comment": "Gameplay stats are game values (not manufacturer data). asset ids not found in manifest.json fall back to `match` regex, then to procedural geometry.",
+ "currency": "INR",
+ "parts": [
+  {
+   "unlock": "start",
+   "id": "engineAssembly_v6_engine_a01",
+   "name": "V6 3.0 NA",
+   "slot": "engine",
+   "price": 320000,
+   "mass": 170,
+   "match": "engineAssembly_.*v6",
+   "stats": {
+    "engine": {
+     "kind": "v6",
+     "peakHp": 280,
+     "peakHpRpm": 6400,
+     "peakNm": 350,
+     "peakNmRpm": 4500,
+     "redline": 7000,
+     "idle": 900
+    }
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "engineAssembly_v8_engine_a01",
+   "name": "V8 5.0 NA",
+   "slot": "engine",
+   "price": 550000,
+   "mass": 210,
+   "match": "engineAssembly_.*v8",
+   "stats": {
+    "engine": {
+     "kind": "v8",
+     "peakHp": 450,
+     "peakHpRpm": 6800,
+     "peakNm": 550,
+     "peakNmRpm": 4800,
+     "redline": 7400,
+     "idle": 800
+    }
+   }
+  },
+  {
+   "unlock": "job",
+   "id": "engineAssembly_v12_engine_a01",
+   "name": "V12 6.5 NA",
+   "slot": "engine",
+   "price": 950000,
+   "mass": 260,
+   "match": "engineAssembly_.*v12",
+   "stats": {
+    "engine": {
+     "kind": "v12",
+     "peakHp": 650,
+     "peakHpRpm": 7800,
+     "peakNm": 700,
+     "peakNmRpm": 5500,
+     "redline": 8500,
+     "idle": 900
+    }
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "engineAssembly_electric_engine_a01",
+   "name": "Dual-Motor EV + 75 kWh pack",
+   "slot": "engine",
+   "price": 750000,
+   "mass": 440,
+   "match": "engineAssembly_.*electric",
+   "note": "Motor ~90 kg + battery 350 kg in the floor pan. 400 hp flat from base speed to 9000 rpm, field-weakening above.",
+   "stats": {
+    "engine": {
+     "kind": "ev",
+     "peakHp": 400,
+     "peakHpRpm": 4745,
+     "peakNm": 600,
+     "peakNmRpm": 0,
+     "redline": 14000,
+     "idle": 0,
+     "batteryMass": 350
+    }
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "engineComponent_turbocompressor_a01",
+   "name": "Single Turbo Kit",
+   "slot": "forced",
+   "price": 120000,
+   "mass": 14,
+   "match": "engineComponent_turbo",
+   "stats": {
+    "powerMul": 1.25,
+    "spoolLag": 0.6,
+    "spoolRpm": 3000
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "engineComponent_supercharger_a01",
+   "name": "Roots Supercharger",
+   "slot": "forced",
+   "price": 140000,
+   "mass": 18,
+   "match": "engineComponent_supercharger",
+   "stats": {
+    "powerMul": 1.18,
+    "efficiency": -0.03
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "engineComponent_air_filter_a01",
+   "name": "Panel Air Filter",
+   "slot": "intake",
+   "price": 8000,
+   "mass": 1.2,
+   "match": "engineComponent_.*(filter|intake)",
+   "stats": {
+    "powerMul": 1.02
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "engineComponent_cold_air_intake_a01",
+   "name": "Cold-Air Intake",
+   "slot": "intake",
+   "price": 32000,
+   "mass": 2.4,
+   "match": "engineComponent_.*(intake|filter)",
+   "stats": {
+    "powerMul": 1.05
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "exhaustSystem_stock_a01",
+   "name": "Stock Exhaust",
+   "slot": "exhaust",
+   "price": 25000,
+   "mass": 22,
+   "match": "exhaustSystem_",
+   "stats": {
+    "powerMul": 0.98
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "exhaustSystem_sport_b01",
+   "name": "Sport Cat-Back",
+   "slot": "exhaust",
+   "price": 55000,
+   "mass": 16,
+   "match": "exhaustSystem_",
+   "stats": {
+    "powerMul": 1.04
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "exhaustSystem_race_c01",
+   "name": "Race Straight-Pipe",
+   "slot": "exhaust",
+   "price": 90000,
+   "mass": 11,
+   "match": "exhaustSystem_",
+   "stats": {
+    "powerMul": 1.06
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "drivetrain_axle_front_a01",
+   "name": "Front Subframe & Axle",
+   "slot": "axle",
+   "price": 40000,
+   "mass": 38,
+   "match": "drivetrain_.*axle",
+   "stats": {}
+  },
+  {
+   "unlock": "start",
+   "id": "drivetrain_axle_rear_a01",
+   "name": "Rear Subframe & Axle",
+   "slot": "axle",
+   "price": 40000,
+   "mass": 42,
+   "match": "drivetrain_.*axle",
+   "stats": {}
+  },
+  {
+   "unlock": "start",
+   "id": "drivetrain_differential_open_a01",
+   "name": "Open Differential",
+   "slot": "diff",
+   "price": 30000,
+   "mass": 28,
+   "match": "drivetrain_.*diff",
+   "stats": {
+    "handling": 0
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "drivetrain_differential_lsd_b01",
+   "name": "Limited-Slip Differential",
+   "slot": "diff",
+   "price": 85000,
+   "mass": 30,
+   "match": "drivetrain_.*diff",
+   "stats": {
+    "handling": 0.08,
+    "launch": 0.06
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "drivetrain_transmission_manual_a01",
+   "name": "6-Speed Manual (RWD)",
+   "slot": "transmission",
+   "price": 120000,
+   "mass": 55,
+   "match": "drivetrain_.*(transmission|gearbox)",
+   "stats": {
+    "gearbox": {
+     "drive": "RWD",
+     "ratios": [
+      3.36,
+      2.07,
+      1.43,
+      1,
+      0.84,
+      0.56
+     ],
+     "final": 3.73,
+     "shiftTime": 0.25,
+     "efficiency": 0.88
+    }
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "drivetrain_transmission_dct_b01",
+   "name": "7-Speed DCT (AWD)",
+   "slot": "transmission",
+   "price": 260000,
+   "mass": 78,
+   "match": "drivetrain_.*(transmission|gearbox)",
+   "stats": {
+    "gearbox": {
+     "drive": "AWD",
+     "ratios": [
+      3.91,
+      2.29,
+      1.58,
+      1.19,
+      0.97,
+      0.8,
+      0.65
+     ],
+     "final": 3.44,
+     "shiftTime": 0.08,
+     "efficiency": 0.85
+    }
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "drivetrain_transmission_ev_c01",
+   "name": "Single-Speed Reduction (EV, AWD)",
+   "slot": "transmission",
+   "price": 90000,
+   "mass": 30,
+   "match": "drivetrain_.*(transmission|gearbox|reduction)",
+   "stats": {
+    "gearbox": {
+     "drive": "AWD",
+     "ratios": [
+      1
+     ],
+     "final": 8.0,
+     "shiftTime": 0,
+     "efficiency": 0.92,
+     "evOnly": true
+    }
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "suspension_strut_stock_a01",
+   "name": "Stock MacPherson Strut",
+   "slot": "strut",
+   "price": 18000,
+   "mass": 9,
+   "match": "suspension_",
+   "stats": {
+    "stiffness": 0.4,
+    "rideHeight": 0
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "suspension_coilover_sport_b01",
+   "name": "Sport Coilover",
+   "slot": "strut",
+   "price": 65000,
+   "mass": 8,
+   "match": "suspension_",
+   "stats": {
+    "stiffness": 0.75,
+    "rideHeight": -0.03
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "suspension_coilover_rally_c01",
+   "name": "Rally Gravel Coilover",
+   "slot": "strut",
+   "price": 80000,
+   "mass": 11,
+   "match": "suspension_",
+   "stats": {
+    "stiffness": 0.55,
+    "rideHeight": 0.04
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "brakeSystem_disc_stock_a01",
+   "name": "Stock Disc & Pads",
+   "slot": "brake",
+   "price": 12000,
+   "mass": 9,
+   "match": "brakeSystem_",
+   "stats": {
+    "brakeFactor": 0.85
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "brakeSystem_brake_assembly_b01",
+   "name": "6-Piston Brake Assembly",
+   "slot": "brake",
+   "price": 70000,
+   "mass": 11,
+   "match": "brakeSystem_.*assembl",
+   "stats": {
+    "brakeFactor": 1,
+    "caliper": "#d23b1f"
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "wheelAssembly_street_a01",
+   "name": "17\" Street Wheel + All-Season",
+   "slot": "wheel",
+   "price": 22000,
+   "mass": 23,
+   "match": "wheelAssembly_",
+   "stats": {
+    "mu": 0.9,
+    "tire": "stock",
+    "rim": "street"
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "wheelAssembly_sport_b01",
+   "name": "18\" Forged + Sport Tyre",
+   "slot": "wheel",
+   "price": 48000,
+   "mass": 20,
+   "match": "wheelAssembly_",
+   "stats": {
+    "mu": 1.05,
+    "tire": "sport",
+    "rim": "forged"
+   }
+  },
+  {
+   "unlock": "job",
+   "id": "wheelAssembly_semislick_b02",
+   "name": "18\" Forged + Semi-Slick",
+   "slot": "wheel",
+   "price": 62000,
+   "mass": 21,
+   "match": "wheelAssembly_",
+   "stats": {
+    "mu": 1.2,
+    "tire": "semi-slick",
+    "rim": "forged"
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "wheelAssembly_rally_c01",
+   "name": "15\" Rally Wheel + Gravel Tyre",
+   "slot": "wheel",
+   "price": 30000,
+   "mass": 19,
+   "match": "wheelAssembly_",
+   "stats": {
+    "mu": 1,
+    "tire": "gravel",
+    "rim": "rally",
+    "handling": 0.04
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "interiorPart_seat_driver_a01",
+   "name": "Comfort Seat",
+   "slot": "seat",
+   "price": 15000,
+   "mass": 22,
+   "match": "interiorPart_.*seat",
+   "stats": {}
+  },
+  {
+   "unlock": "start",
+   "id": "interiorPart_seat_bucket_b01",
+   "name": "Fixed-Back Bucket Seat",
+   "slot": "seat",
+   "price": 42000,
+   "mass": 9,
+   "match": "interiorPart_.*seat",
+   "stats": {
+    "comHeight": -0.01
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "interiorPart_seat_rear_bench_a01",
+   "name": "Rear Bench",
+   "slot": "seatRear",
+   "price": 12000,
+   "mass": 18,
+   "match": "interiorPart_.*(bench|seat)",
+   "stats": {}
+  },
+  {
+   "unlock": "start",
+   "id": "interiorPart_dashboard_a01",
+   "name": "Dashboard Module",
+   "slot": "dashboard",
+   "price": 28000,
+   "mass": 14,
+   "match": "interiorPart_.*dash",
+   "stats": {}
+  },
+  {
+   "unlock": "start",
+   "id": "steeringSystem_steering_wheel_a01",
+   "name": "Steering Wheel",
+   "slot": "steering",
+   "price": 6000,
+   "mass": 2,
+   "match": "steeringSystem_",
+   "stats": {}
+  },
+  {
+   "unlock": "start",
+   "id": "steeringSystem_steering_wheel_sport_b01",
+   "name": "Suede Sport Wheel",
+   "slot": "steering",
+   "price": 18000,
+   "mass": 1.4,
+   "match": "steeringSystem_",
+   "stats": {}
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_hood_a01",
+   "name": "Street Hood",
+   "slot": "hood",
+   "kit": "a",
+   "price": 18000,
+   "mass": 16,
+   "match": "bodyPart_.*hood",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_trunk_a01",
+   "name": "Street Trunk Lid",
+   "slot": "trunk",
+   "kit": "a",
+   "price": 14000,
+   "mass": 12,
+   "match": "bodyPart_.*trunk",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_door_front_a01",
+   "name": "Street Front Door",
+   "slot": "doorFront",
+   "kit": "a",
+   "price": 24000,
+   "mass": 26,
+   "match": "bodyPart_.*door",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_door_rear_a01",
+   "name": "Street Rear Door",
+   "slot": "doorRear",
+   "kit": "a",
+   "price": 22000,
+   "mass": 22,
+   "match": "bodyPart_.*door",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_fender_front_a01",
+   "name": "Street Front Fender",
+   "slot": "fenderFront",
+   "kit": "a",
+   "price": 9000,
+   "mass": 5,
+   "match": "bodyPart_.*fender",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_fender_rear_a01",
+   "name": "Street Rear Quarter Panel",
+   "slot": "fenderRear",
+   "kit": "a",
+   "price": 11000,
+   "mass": 7,
+   "match": "bodyPart_.*fender",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_bumper_front_a01",
+   "name": "Street Front Bumper",
+   "slot": "bumperF",
+   "kit": "a",
+   "price": 15000,
+   "mass": 7,
+   "match": "bodyPart_.*bumper",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_bumper_rear_a01",
+   "name": "Street Rear Bumper",
+   "slot": "bumperR",
+   "kit": "a",
+   "price": 13000,
+   "mass": 6,
+   "match": "bodyPart_.*bumper",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_grille_a01",
+   "name": "Street Grille",
+   "slot": "grille",
+   "kit": "a",
+   "price": 5000,
+   "mass": 1.5,
+   "match": "bodyPart_.*grille",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_headlight_a01",
+   "name": "Street Headlight",
+   "slot": "headlight",
+   "kit": "a",
+   "price": 12000,
+   "mass": 3,
+   "match": "bodyPart_.*headlight",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_taillight_a01",
+   "name": "Street Taillight",
+   "slot": "taillight",
+   "kit": "a",
+   "price": 7000,
+   "mass": 1.5,
+   "match": "bodyPart_.*taillight",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_roof_a01",
+   "name": "Street Roof & Pillars",
+   "slot": "roof",
+   "kit": "a",
+   "price": 30000,
+   "mass": 14,
+   "match": "bodyPart_.*roof",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_windscreen_a01",
+   "name": "Street Windscreen",
+   "slot": "windscreen",
+   "kit": "a",
+   "price": 16000,
+   "mass": 14,
+   "match": "bodyPart_.*windscreen",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_mirror_a01",
+   "name": "Street Door Mirror",
+   "slot": "mirror",
+   "kit": "a",
+   "price": 4000,
+   "mass": 1.2,
+   "match": "bodyPart_.*mirror",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_side_skirt_a01",
+   "name": "Street Side Skirt",
+   "slot": "skirt",
+   "kit": "a",
+   "price": 6000,
+   "mass": 2,
+   "match": "bodyPart_.*side",
+   "stats": {
+    "cd": 0.32
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_hood_b01",
+   "name": "GT Hood",
+   "slot": "hood",
+   "kit": "b",
+   "price": 29000,
+   "mass": 12,
+   "match": "bodyPart_.*hood",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_trunk_b01",
+   "name": "GT Trunk Lid",
+   "slot": "trunk",
+   "kit": "b",
+   "price": 22500,
+   "mass": 9,
+   "match": "bodyPart_.*trunk",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_door_front_b01",
+   "name": "GT Front Door",
+   "slot": "doorFront",
+   "kit": "b",
+   "price": 38500,
+   "mass": 19.5,
+   "match": "bodyPart_.*door",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_door_rear_b01",
+   "name": "GT Rear Door",
+   "slot": "doorRear",
+   "kit": "b",
+   "price": 35000,
+   "mass": 16.5,
+   "match": "bodyPart_.*door",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_fender_front_b01",
+   "name": "GT Front Fender",
+   "slot": "fenderFront",
+   "kit": "b",
+   "price": 14500,
+   "mass": 3.8,
+   "match": "bodyPart_.*fender",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_fender_rear_b01",
+   "name": "GT Rear Quarter Panel",
+   "slot": "fenderRear",
+   "kit": "b",
+   "price": 17500,
+   "mass": 5.3,
+   "match": "bodyPart_.*fender",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_bumper_front_b01",
+   "name": "GT Front Bumper",
+   "slot": "bumperF",
+   "kit": "b",
+   "price": 24000,
+   "mass": 5.3,
+   "match": "bodyPart_.*bumper",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_bumper_rear_b01",
+   "name": "GT Rear Bumper",
+   "slot": "bumperR",
+   "kit": "b",
+   "price": 21000,
+   "mass": 4.5,
+   "match": "bodyPart_.*bumper",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_grille_b01",
+   "name": "GT Grille",
+   "slot": "grille",
+   "kit": "b",
+   "price": 8000,
+   "mass": 1.1,
+   "match": "bodyPart_.*grille",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_headlight_b01",
+   "name": "GT Headlight",
+   "slot": "headlight",
+   "kit": "b",
+   "price": 19000,
+   "mass": 2.3,
+   "match": "bodyPart_.*headlight",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_taillight_b01",
+   "name": "GT Taillight",
+   "slot": "taillight",
+   "kit": "b",
+   "price": 11000,
+   "mass": 1.1,
+   "match": "bodyPart_.*taillight",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_roof_b01",
+   "name": "GT Roof & Pillars",
+   "slot": "roof",
+   "kit": "b",
+   "price": 48000,
+   "mass": 10.5,
+   "match": "bodyPart_.*roof",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_windscreen_b01",
+   "name": "GT Windscreen",
+   "slot": "windscreen",
+   "kit": "b",
+   "price": 25500,
+   "mass": 10.5,
+   "match": "bodyPart_.*windscreen",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_mirror_b01",
+   "name": "GT Door Mirror",
+   "slot": "mirror",
+   "kit": "b",
+   "price": 6500,
+   "mass": 0.9,
+   "match": "bodyPart_.*mirror",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_side_skirt_b01",
+   "name": "GT Side Skirt",
+   "slot": "skirt",
+   "kit": "b",
+   "price": 9500,
+   "mass": 1.5,
+   "match": "bodyPart_.*side",
+   "stats": {
+    "cd": 0.29
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_hood_c01",
+   "name": "Rally Hood",
+   "slot": "hood",
+   "kit": "c",
+   "price": 23500,
+   "mass": 16,
+   "match": "bodyPart_.*hood",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_trunk_c01",
+   "name": "Rally Trunk Lid",
+   "slot": "trunk",
+   "kit": "c",
+   "price": 18000,
+   "mass": 12,
+   "match": "bodyPart_.*trunk",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_door_front_c01",
+   "name": "Rally Front Door",
+   "slot": "doorFront",
+   "kit": "c",
+   "price": 31000,
+   "mass": 26,
+   "match": "bodyPart_.*door",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_door_rear_c01",
+   "name": "Rally Rear Door",
+   "slot": "doorRear",
+   "kit": "c",
+   "price": 28500,
+   "mass": 22,
+   "match": "bodyPart_.*door",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_fender_front_c01",
+   "name": "Rally Front Fender",
+   "slot": "fenderFront",
+   "kit": "c",
+   "price": 11500,
+   "mass": 5,
+   "match": "bodyPart_.*fender",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_fender_rear_c01",
+   "name": "Rally Rear Quarter Panel",
+   "slot": "fenderRear",
+   "kit": "c",
+   "price": 14500,
+   "mass": 7,
+   "match": "bodyPart_.*fender",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_bumper_front_c01",
+   "name": "Rally Front Bumper",
+   "slot": "bumperF",
+   "kit": "c",
+   "price": 19500,
+   "mass": 7,
+   "match": "bodyPart_.*bumper",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_bumper_rear_c01",
+   "name": "Rally Rear Bumper",
+   "slot": "bumperR",
+   "kit": "c",
+   "price": 17000,
+   "mass": 6,
+   "match": "bodyPart_.*bumper",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_grille_c01",
+   "name": "Rally Grille",
+   "slot": "grille",
+   "kit": "c",
+   "price": 6500,
+   "mass": 1.5,
+   "match": "bodyPart_.*grille",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_headlight_c01",
+   "name": "Rally Headlight",
+   "slot": "headlight",
+   "kit": "c",
+   "price": 15500,
+   "mass": 3,
+   "match": "bodyPart_.*headlight",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_taillight_c01",
+   "name": "Rally Taillight",
+   "slot": "taillight",
+   "kit": "c",
+   "price": 9000,
+   "mass": 1.5,
+   "match": "bodyPart_.*taillight",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_roof_c01",
+   "name": "Rally Roof & Pillars",
+   "slot": "roof",
+   "kit": "c",
+   "price": 39000,
+   "mass": 14,
+   "match": "bodyPart_.*roof",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_windscreen_c01",
+   "name": "Rally Windscreen",
+   "slot": "windscreen",
+   "kit": "c",
+   "price": 21000,
+   "mass": 14,
+   "match": "bodyPart_.*windscreen",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_mirror_c01",
+   "name": "Rally Door Mirror",
+   "slot": "mirror",
+   "kit": "c",
+   "price": 5000,
+   "mass": 1.2,
+   "match": "bodyPart_.*mirror",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_side_skirt_c01",
+   "name": "Rally Side Skirt",
+   "slot": "skirt",
+   "kit": "c",
+   "price": 8000,
+   "mass": 2,
+   "match": "bodyPart_.*side",
+   "stats": {
+    "cd": 0.36
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_spoiler_lip_a01",
+   "name": "Street Ducktail Lip",
+   "slot": "spoiler",
+   "kit": "a",
+   "price": 9000,
+   "mass": 2,
+   "match": "bodyPart_.*(spoiler|wing)",
+   "stats": {
+    "cdDelta": 0,
+    "downforce": 0.15
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_spoiler_wing_b01",
+   "name": "GT Swan-Neck Wing",
+   "slot": "spoiler",
+   "kit": "b",
+   "price": 85000,
+   "mass": 6,
+   "match": "bodyPart_.*(spoiler|wing)",
+   "stats": {
+    "cdDelta": 0.02,
+    "downforce": 1
+   }
+  },
+  {
+   "unlock": "start",
+   "id": "bodyPart_spoiler_roof_c01",
+   "name": "Rally Roof Spoiler",
+   "slot": "spoiler",
+   "kit": "c",
+   "price": 32000,
+   "mass": 4,
+   "match": "bodyPart_.*(spoiler|wing)",
+   "stats": {
+    "cdDelta": 0.01,
+    "downforce": 0.5
+   }
+  }
+ ]
+}

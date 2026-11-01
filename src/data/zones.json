@@ -1,0 +1,1230 @@
+{
+ "$comment": "World coords (m). Building spans x -12..12, z -8..8. fallback = procedural stand-in when the asset is missing from manifest.json.",
+ "shell": {
+  "size": [
+   24,
+   16
+  ],
+  "height": 6,
+  "entrance": {
+   "x": [
+    0,
+    4
+   ]
+  },
+  "props": [
+   {
+    "asset": "serviceTool_drainPan_oilRolling_a01",
+    "pos": [
+     -7,
+     0,
+     -0.6
+    ],
+    "rotY": 0,
+    "fallback": {
+     "kind": "cylinder",
+     "size": [
+      0.7,
+      0.25,
+      0.7
+     ],
+     "color": "#1d1f22"
+    },
+    "dynamic": true
+   },
+   {
+    "asset": "serviceTool_waste_oil_tank_a01",
+    "pos": [
+     -11.4,
+     0,
+     7.2
+    ],
+    "rotY": 0,
+    "fallback": {
+     "kind": "cylinder",
+     "size": [
+      0.6,
+      1.2,
+      0.6
+     ],
+     "color": "#8a2a1e"
+    }
+   },
+   {
+    "asset": "fireExtinguisher_stand_a01",
+    "pos": [
+     -0.3,
+     0,
+     7.6
+    ],
+    "rotY": 0,
+    "fallback": {
+     "kind": "box",
+     "size": [
+      0.3,
+      0.08,
+      0.3
+     ],
+     "color": "#2a2a2a"
+    }
+   },
+   {
+    "asset": "fireExtinguisher_abc_a03",
+    "pos": [
+     -0.3,
+     0.08,
+     7.6
+    ],
+    "rotY": 0,
+    "fallback": {
+     "kind": "extinguisher"
+    },
+    "instances": [
+     [
+      -0.3,
+      0.08,
+      7.6
+     ],
+     [
+      4.8,
+      0,
+      -1.4
+     ],
+     [
+      -11.6,
+      0,
+      -0.2
+     ]
+    ]
+   },
+   {
+    "asset": "handTruck_convertible_steel_red_a01",
+    "pos": [
+     7.6,
+     0,
+     1
+    ],
+    "rotY": 20,
+    "fallback": {
+     "kind": "handTruck"
+    },
+    "dynamic": true
+   },
+   {
+    "asset": "ladder_step_folding_a01",
+    "pos": [
+     11.6,
+     0,
+     -1.4
+    ],
+    "rotY": -90,
+    "fallback": {
+     "kind": "ladder"
+    }
+   },
+   {
+    "asset": "sign_wetFloor_a01",
+    "pos": [
+     1.4,
+     0,
+     2.2
+    ],
+    "rotY": 25,
+    "fallback": {
+     "kind": "wetFloor"
+    }
+   }
+  ]
+ },
+ "zones": [
+  {
+   "id": "A",
+   "name": "Service Bay 1 · Lift",
+   "center": [
+    -9,
+    -4
+   ],
+   "size": [
+    6,
+    8
+   ],
+   "station": "lift",
+   "unlock": "start",
+   "adj": [
+    "B",
+    "C"
+   ],
+   "camera": {
+    "pos": [
+     -5.4,
+     2.6,
+     0.6
+    ],
+    "target": [
+     -9,
+     0.9,
+     -4
+    ]
+   },
+   "props": [
+    {
+     "asset": "vehicleSupport_scissor_lift_c01",
+     "pos": [
+      -9,
+      0,
+      -4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "scissorLift"
+     },
+     "role": "lift"
+    },
+    {
+     "asset": "vehicleSupport_jack_stand_b01",
+     "pos": [
+      -11.3,
+      0,
+      -1.2
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "jackStand"
+     }
+    },
+    {
+     "asset": "vehicleSupport_jack_stand_b01",
+     "pos": [
+      -11,
+      0,
+      -1.2
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "jackStand"
+     }
+    },
+    {
+     "asset": "vehicleSupport_jack_stand_b01",
+     "pos": [
+      -11.3,
+      0,
+      -0.9
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "jackStand"
+     }
+    },
+    {
+     "asset": "vehicleSupport_jack_stand_b01",
+     "pos": [
+      -11,
+      0,
+      -0.9
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "jackStand"
+     }
+    },
+    {
+     "asset": "vehicleSupport_wheel_chock_a01",
+     "pos": [
+      -11.4,
+      0,
+      -6.8
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       0.2,
+       0.12,
+       0.3
+      ],
+      "color": "#d9a92a"
+     }
+    },
+    {
+     "asset": "vehicleSupport_floor_jack_a01",
+     "pos": [
+      -6.8,
+      0,
+      -1.4
+     ],
+     "rotY": -30,
+     "fallback": {
+      "kind": "floorJack"
+     },
+     "dynamic": true
+    },
+    {
+     "asset": "lighting_taskLight_tripodFlood_a01",
+     "pos": [
+      -11.2,
+      0,
+      -7.2
+     ],
+     "rotY": 40,
+     "fallback": {
+      "kind": "tripodLight"
+     }
+    },
+    {
+     "asset": "powerTool_impact_wrench_a01",
+     "pos": [
+      -6.6,
+      0.9,
+      -7.4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       0.2,
+       0.22,
+       0.08
+      ],
+      "color": "#c8462b"
+     }
+    },
+    {
+     "asset": "storage_toolbox_foldout_hardCase_a01",
+     "pos": [
+      -6.6,
+      0,
+      -7.4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "toolCart"
+     },
+     "dynamic": true
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "name": "Service Bay 2 · Build",
+   "center": [
+    -3,
+    -4
+   ],
+   "size": [
+    6,
+    8
+   ],
+   "station": "build",
+   "unlock": "bay2",
+   "adj": [
+    "A",
+    "G",
+    "D"
+   ],
+   "camera": {
+    "pos": [
+     0.2,
+     2.4,
+     0.4
+    ],
+    "target": [
+     -3,
+     0.7,
+     -4
+    ]
+   },
+   "props": [
+    {
+     "asset": "vehicleSupport_hydraulic_rolling_platform_a01",
+     "pos": [
+      -3,
+      0,
+      -4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "platform"
+     }
+    },
+    {
+     "asset": "vehicleSupport_rolling_dolly_c01",
+     "pos": [
+      -5.4,
+      0,
+      -7.2
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "dolly"
+     },
+     "dynamic": true
+    },
+    {
+     "asset": "vehicleSupport_rolling_dolly_c01",
+     "pos": [
+      -4.7,
+      0,
+      -7.2
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "dolly"
+     },
+     "dynamic": true
+    },
+    {
+     "asset": "vehicleSupport_rolling_dolly_c01",
+     "pos": [
+      -5.4,
+      0,
+      -6.5
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "dolly"
+     },
+     "dynamic": true
+    },
+    {
+     "asset": "vehicleSupport_rolling_dolly_c01",
+     "pos": [
+      -4.7,
+      0,
+      -6.5
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "dolly"
+     },
+     "dynamic": true
+    },
+    {
+     "asset": "vehicleSupport_portable_lift_a01",
+     "pos": [
+      -0.8,
+      0,
+      -7.2
+     ],
+     "rotY": 90,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       0.6,
+       1.4,
+       0.5
+      ],
+      "color": "#2f6fb3"
+     }
+    },
+    {
+     "asset": "vehicleSupport_transmission_jack_a01",
+     "pos": [
+      -0.8,
+      0,
+      -1.2
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "transJack"
+     }
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "name": "Engine Shop",
+   "center": [
+    -9.5,
+    3.5
+   ],
+   "size": [
+    5,
+    5
+   ],
+   "station": null,
+   "unlock": "start",
+   "adj": [
+    "A",
+    "D"
+   ],
+   "camera": {
+    "pos": [
+     -6.2,
+     2.4,
+     6.4
+    ],
+    "target": [
+     -9.8,
+     0.8,
+     2.8
+    ]
+   },
+   "props": [
+    {
+     "asset": "serviceTool_engine_hoist_a01",
+     "pos": [
+      -10.6,
+      0,
+      2.2
+     ],
+     "rotY": 30,
+     "fallback": {
+      "kind": "hoist"
+     },
+     "role": "hoist"
+    },
+    {
+     "asset": "serviceTool_engine_stand_a01",
+     "pos": [
+      -8.4,
+      0,
+      1.8
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "engineStand"
+     }
+    },
+    {
+     "asset": "serviceTool_engine_stand_b01",
+     "pos": [
+      -8.4,
+      0,
+      4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "engineStand"
+     }
+    },
+    {
+     "asset": "powerTool_welding_station_a01",
+     "pos": [
+      -11.4,
+      0,
+      5.4
+     ],
+     "rotY": 90,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       0.55,
+       0.9,
+       0.7
+      ],
+      "color": "#2c5d8f"
+     }
+    },
+    {
+     "asset": "storage_toolbox_foldout_hardCase_a01",
+     "pos": [
+      -9.6,
+      0,
+      5.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "toolCart"
+     }
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "name": "Wheel & Tyre",
+   "center": [
+    -4,
+    4.5
+   ],
+   "size": [
+    4,
+    5
+   ],
+   "station": null,
+   "unlock": "start",
+   "adj": [
+    "B",
+    "C",
+    "H"
+   ],
+   "camera": {
+    "pos": [
+     -1.6,
+     2.2,
+     7.2
+    ],
+    "target": [
+     -4.2,
+     0.7,
+     4
+    ]
+   },
+   "props": [
+    {
+     "asset": "tireTool_tire_changer_c01",
+     "pos": [
+      -5.2,
+      0,
+      3
+     ],
+     "rotY": 90,
+     "fallback": {
+      "kind": "tireChanger"
+     }
+    },
+    {
+     "asset": "tireTool_bead_breaker_a01",
+     "pos": [
+      -3.2,
+      0,
+      2.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       0.5,
+       1,
+       0.5
+      ],
+      "color": "#b23a26"
+     }
+    },
+    {
+     "asset": "storage_tire_rack_a01",
+     "pos": [
+      -5.6,
+      0,
+      6.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "tireRack"
+     }
+    },
+    {
+     "asset": "storage_tire_rack_c01",
+     "pos": [
+      -3.6,
+      0,
+      6.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "tireRack"
+     }
+    },
+    {
+     "asset": "serviceTool_inflator_a01",
+     "pos": [
+      -2.6,
+      0,
+      4.8
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "cylinder",
+      "size": [
+       0.3,
+       0.7,
+       0.3
+      ],
+      "color": "#c9c9c9"
+     }
+    },
+    {
+     "asset": "serviceTool_gauge_tirePressureDial_a01",
+     "pos": [
+      -3.2,
+      1.02,
+      2.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "cylinder",
+      "size": [
+       0.08,
+       0.03,
+       0.08
+      ],
+      "color": "#111"
+     }
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "name": "Paint Booth",
+   "center": [
+    8.5,
+    -5
+   ],
+   "size": [
+    5,
+    6
+   ],
+   "station": "booth",
+   "unlock": "booth",
+   "enclosed": true,
+   "adj": [
+    "G",
+    "F"
+   ],
+   "camera": {
+    "pos": [
+     10.4,
+     2,
+     -3
+    ],
+    "target": [
+     8.5,
+     0.8,
+     -5
+    ]
+   },
+   "props": [
+    {
+     "asset": "serviceTool_sprayGunHolder_wallRack_a01",
+     "pos": [
+      10.85,
+      1.3,
+      -6.6
+     ],
+     "rotY": -90,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       0.1,
+       0.5,
+       0.6
+      ],
+      "color": "#3a3d42"
+     }
+    },
+    {
+     "asset": "serviceTool_sprayGun_gravityFeed_a01",
+     "pos": [
+      10.75,
+      1.35,
+      -6.6
+     ],
+     "rotY": -90,
+     "fallback": {
+      "kind": "sprayGun"
+     }
+    },
+    {
+     "asset": "paint_supplies_spraygun_a01",
+     "pos": [
+      6.5,
+      0,
+      -7.5
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "cylinder",
+      "size": [
+       0.3,
+       0.4,
+       0.3
+      ],
+      "color": "#7a7f86"
+     }
+    },
+    {
+     "asset": "paint_container_spraycan_a01",
+     "pos": [
+      6.6,
+      0,
+      -7
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "cylinder",
+      "size": [
+       0.07,
+       0.22,
+       0.07
+      ],
+      "color": "#e04a1b"
+     },
+     "instances": [
+      [
+       6.6,
+       0,
+       -7
+      ],
+      [
+       6.72,
+       0,
+       -7
+      ],
+      [
+       6.84,
+       0,
+       -7
+      ],
+      [
+       6.6,
+       0,
+       -6.86
+      ],
+      [
+       6.72,
+       0,
+       -6.86
+      ]
+     ]
+    },
+    {
+     "asset": "paint_supplies_thinner_a01",
+     "pos": [
+      6.5,
+      0,
+      -2.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "cylinder",
+      "size": [
+       0.25,
+       0.35,
+       0.25
+      ],
+      "color": "#cfd3d6"
+     },
+     "instances": [
+      [
+       6.5,
+       0,
+       -2.6
+      ],
+      [
+       6.82,
+       0,
+       -2.6
+      ],
+      [
+       6.5,
+       0,
+       -2.92
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "name": "Parts Store",
+   "center": [
+    10,
+    3
+   ],
+   "size": [
+    4,
+    8
+   ],
+   "station": null,
+   "unlock": "start",
+   "adj": [
+    "E",
+    "H"
+   ],
+   "camera": {
+    "pos": [
+     6.4,
+     2.4,
+     3.2
+    ],
+    "target": [
+     10.4,
+     1.2,
+     3
+    ]
+   },
+   "props": [
+    {
+     "asset": "rack_large_empty_a01",
+     "pos": [
+      11.4,
+      0,
+      0.6
+     ],
+     "rotY": -90,
+     "fallback": {
+      "kind": "rack",
+      "size": [
+       2.4,
+       2.4,
+       0.9
+      ]
+     }
+    },
+    {
+     "asset": "rack_large_empty_a02",
+     "pos": [
+      11.4,
+      0,
+      3.2
+     ],
+     "rotY": -90,
+     "fallback": {
+      "kind": "rack",
+      "size": [
+       2.4,
+       2.4,
+       0.9
+      ]
+     }
+    },
+    {
+     "asset": "rack_long_empty_a01",
+     "pos": [
+      11.4,
+      0,
+      5.8
+     ],
+     "rotY": -90,
+     "fallback": {
+      "kind": "rack",
+      "size": [
+       2.4,
+       1.8,
+       0.6
+      ]
+     }
+    },
+    {
+     "asset": "storage_shelf_basic_b01",
+     "pos": [
+      8.6,
+      0,
+      -0.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "rack",
+      "size": [
+       1.2,
+       1.8,
+       0.45
+      ]
+     }
+    },
+    {
+     "asset": "pallet_a01",
+     "pos": [
+      9,
+      0,
+      6.4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "pallet"
+     },
+     "instances": [
+      [
+       9,
+       0,
+       6.4
+      ],
+      [
+       9,
+       0.15,
+       6.4
+      ],
+      [
+       9,
+       0.3,
+       6.4
+      ],
+      [
+       10.3,
+       0,
+       6.6
+      ]
+     ]
+    },
+    {
+     "asset": "pallet_block_a01",
+     "pos": [
+      8.9,
+      0,
+      1.2
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "pallet"
+     },
+     "instances": [
+      [
+       8.9,
+       0,
+       1.2
+      ],
+      [
+       8.9,
+       0,
+       2.6
+      ],
+      [
+       8.9,
+       0.15,
+       2.6
+      ]
+     ]
+    },
+    {
+     "asset": "drum_steel_a01",
+     "pos": [
+      8.7,
+      0,
+      4.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "drum",
+      "color": "#3a4148"
+     },
+     "instances": [
+      [
+       8.7,
+       0,
+       4.6
+      ],
+      [
+       9.35,
+       0,
+       4.6
+      ],
+      [
+       8.7,
+       0,
+       5.25
+      ]
+     ]
+    },
+    {
+     "asset": "drum_plastic_blue_a01",
+     "pos": [
+      10.05,
+      0,
+      4.6
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "drum",
+      "color": "#1f5fa8"
+     },
+     "instances": [
+      [
+       10.05,
+       0,
+       4.6
+      ],
+      [
+       10.05,
+       0,
+       5.25
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "name": "Dyno Bay",
+   "center": [
+    2.5,
+    -4.5
+   ],
+   "size": [
+    5,
+    7
+   ],
+   "station": "dyno",
+   "unlock": "dyno",
+   "adj": [
+    "B",
+    "E",
+    "H"
+   ],
+   "camera": {
+    "pos": [
+     6.2,
+     1.25,
+     -4.5
+    ],
+    "target": [
+     2.5,
+     0.7,
+     -4.5
+    ]
+   },
+   "props": [
+    {
+     "asset": "proc:dyno_rollers",
+     "pos": [
+      2.5,
+      0,
+      -4.5
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "dynoRollers"
+     },
+     "role": "dyno"
+    },
+    {
+     "asset": "barrier_gate_safety_a02",
+     "pos": [
+      2.5,
+      0,
+      -1.4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "barrier"
+     }
+    },
+    {
+     "asset": "sign_warning_a04",
+     "pos": [
+      4.85,
+      1.6,
+      -6
+     ],
+     "rotY": -90,
+     "fallback": {
+      "kind": "sign",
+      "color": "#F2C230"
+     }
+    },
+    {
+     "asset": "proc:extractor_fan",
+     "pos": [
+      2.5,
+      0,
+      -7.75
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "extractorFan"
+     }
+    }
+   ]
+  },
+  {
+   "id": "H",
+   "name": "Office · Counter",
+   "center": [
+    5.5,
+    5.5
+   ],
+   "size": [
+    3,
+    4
+   ],
+   "station": null,
+   "unlock": "start",
+   "adj": [
+    "D",
+    "F",
+    "G"
+   ],
+   "camera": {
+    "pos": [
+     3,
+     1.9,
+     3
+    ],
+    "target": [
+     5.6,
+     0.9,
+     5.8
+    ]
+   },
+   "props": [
+    {
+     "asset": "proc:counter",
+     "pos": [
+      5.5,
+      0,
+      4.4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       2.6,
+       1.05,
+       0.6
+      ],
+      "color": "#24272b"
+     }
+    },
+    {
+     "asset": "warehouse_chair_office_amf_black_a01",
+     "pos": [
+      5.6,
+      0,
+      5.4
+     ],
+     "rotY": 180,
+     "fallback": {
+      "kind": "chair"
+     }
+    },
+    {
+     "asset": "warehouse_computer_keyboard_a01",
+     "pos": [
+      5.6,
+      1.06,
+      4.4
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       0.44,
+       0.03,
+       0.14
+      ],
+      "color": "#111"
+     }
+    },
+    {
+     "asset": "monitor_desktop_a01",
+     "pos": [
+      5.6,
+      1.05,
+      4.2
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "monitor"
+     }
+    },
+    {
+     "asset": "computer_tower_a01",
+     "pos": [
+      6.5,
+      1.05,
+      4.3
+     ],
+     "rotY": 0,
+     "fallback": {
+      "kind": "box",
+      "size": [
+       0.2,
+       0.42,
+       0.42
+      ],
+      "color": "#15171a"
+     }
+    }
+   ]
+  }
+ ]
+}
