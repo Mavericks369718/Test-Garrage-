@@ -39,6 +39,7 @@ export interface Stats {
 
 export function inductionOf(sockets: Record<string, string>): Induction {
   const ind: Induction = { ...NO_INDUCTION };
+  if (PART_BY_ID[sockets.engine_bay]?.stats.engine?.kind === 'ev') return ind;
   const f = sockets.forced_induction ? PART_BY_ID[sockets.forced_induction] : undefined;
   if (f?.stats.powerMul) {
     ind.boostMul = f.stats.powerMul;

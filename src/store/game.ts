@@ -132,8 +132,11 @@ export interface GameState {
   exportBuild: () => string;
 }
 
+/** Career (modify) mode is gated by money/unlocks; Build and Free Garage are creative modes with everything available. */
+export const isCreative = (s: Pick<GameState, 'mode'>) => s.mode === 'free' || s.mode === 'build';
+
 export const isUnlockedZone = (s: Pick<GameState, 'mode' | 'career'>, zone: string) =>
-  s.mode === 'free' || s.career.zones.includes(zone);
+  isCreative(s) || s.career.zones.includes(zone);
 
 export function toolsFor(s: Pick<GameState, 'mode' | 'career'>): Partial<Record<ToolId, boolean>> {
   const out: Partial<Record<ToolId, boolean>> = {};
@@ -147,7 +150,7 @@ export function ctxOf(s: GameState): AssemblyContext {
 
 export function partUnlocked(s: Pick<GameState, 'mode' | 'career'>, id: string) {
   const p = PART_BY_ID[id];
-  return s.mode === 'free' || p?.unlock === 'start' || s.career.unlockedParts.includes(id);
+  return isCreative(s) || p?.unlock === 'start' || s.career.unlockedParts.includes(id);
 }
 
 const freshCareer = (): Career => ({
@@ -190,10 +193,10 @@ export const useGame = create<GameState>()(
     (set, get) => ({
       mode: 'menu',
       career: freshCareer(),
-      car: bareCar('build'),
+      car: kitCar('B', '#8a1c1c'),
       ui: {
         inventoryOpen: false, selectedPart: null, ghostSocket: null, ghostIndex: 0, focusSocket: null, hoverSocket: null,
-        zone: 'B', cameraMode: 'orbit', panel: 'none', toast: null, onboarding: -1, liftTarget: 0, dynoRunning: false,
+        zone: 'A', cameraMode: 'orbit', panel: 'none', toast: null, onboarding: -1, liftTarget: 0, dynoRunning: false,
         spraying: false, quality: 'high', menuOpen: false,
       },
       spray: { from: DEFAULT_PAINT.color, coverage: 1 },
@@ -290,7 +293,7 @@ export const useGame = create<GameState>()(
         }
         const part = PART_BY_ID[partId];
         const career = { ...s.career, inventory: { ...s.career.inventory } };
-        if (s.mode !== 'free') {
+        if (!isCreative(s)) {
           if (!partUnlocked(s, partId)) { get().toast('Part is locked — finish jobs to unlock', 'warn'); return false; }
           if ((career.inventory[partId] ?? 0) > 0) career.inventory[partId]--;
           else if (career.money >= part.price) { career.money -= part.price; career.jobSpend += part.price; }
@@ -317,7 +320,7 @@ export const useGame = create<GameState>()(
         delete sockets[socket];
         const career = { ...s.career, inventory: { ...s.career.inventory } };
         let loose = s.loose;
-        if (how === 'sell' && s.mode !== 'free') {
+        if (how === 'sell' && !isCreative(s)) {
           const worn = s.car.worn.includes(socket);
           const refund = Math.round(part.price * 0.4 * (worn ? 0.25 : 1));
           career.money += refund;
@@ -327,8 +330,8 @@ export const useGame = create<GameState>()(
         } else if (how === 'drop') {
           const cap = matchMedia?.('(pointer: coarse)').matches ? 25 : 60;
           const p = TEMPLATE.sockets[socket].pos;
-          loose = [...s.loose, { key: looseKey++, partId: id, pos: [p[0] * 1.6, 1.2, p[2]] as [number, number, number] }].slice(-cap);
-        } else if (s.mode !== 'free') {
+          loose = [...s.loose, { key: looseKey++, partId: id, pos: [(p[0] >= 0 ? 1 : -1) * (1.35 + Math.random() * 0.3), 1.0, p[2]] as [number, number, number] }].slice(-cap);
+        } else if (!isCreative(s)) {
           career.inventory[id] = (career.inventory[id] ?? 0) + 1;
         }
         set({
@@ -345,7 +348,7 @@ export const useGame = create<GameState>()(
         const l = s.loose.find((x) => x.key === key);
         if (!l) return;
         const career = { ...s.career, inventory: { ...s.career.inventory } };
-        if (s.mode !== 'free') career.inventory[l.partId] = (career.inventory[l.partId] ?? 0) + 1;
+        if (!isCreative(s)) career.inventory[l.partId] = (career.inventory[l.partId] ?? 0) + 1;
         set({ loose: s.loose.filter((x) => x.key !== key), career });
         get().toast(`${PART_BY_ID[l.partId].name} → inventory`);
       },
@@ -408,7 +411,9 @@ export const useGame = create<GameState>()(
       partialize: (s) => ({ mode: s.mode === 'menu' ? 'menu' : s.mode, career: s.career, car: s.car, spray: s.spray }),
       merge: (persisted, current) => {
         const p = persisted as Partial<GameState>;
-        return { ...current, ...p, mode: 'menu', career: { ...current.career, ...(p.career ?? {}) }, car: { ...current.car, ...(p.car ?? {}) } };
+        const car = { ...current.car, ...(p.car ?? {}) };
+        const zone = { lift: 'A', build: 'B', booth: 'E', dyno: 'G' }[car.station] ?? 'A';
+        return { ...current, ...p, mode: 'menu', career: { ...current.career, ...(p.career ?? {}) }, car, ui: { ...current.ui, zone } };
       },
     },
   ),

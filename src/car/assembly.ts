@@ -54,12 +54,8 @@ export function canAttach(ctx: AssemblyContext, socket: string, partId: string):
     if (ev && !isEv) return no('Single-speed reduction is for electric motors only');
     if (!ev && isEv) return no('Electric motor needs the single-speed reduction');
   }
-  if (s.slot === 'engine' && ctx.sockets.transmission) {
-    const gbEv = !!PART_BY_ID[ctx.sockets.transmission]?.stats.gearbox?.evOnly;
-    if (gbEv !== (part.stats.engine?.kind === 'ev')) return no('Remove the transmission first (wrong type for this engine)');
-  }
-  if (s.slot === 'engine' && part.stats.engine?.kind === 'ev' && (ctx.sockets.exhaust || ctx.sockets.forced_induction)) {
-    return no('Remove the exhaust and forced induction first');
+  if (s.slot === 'engine' && part.stats.engine?.kind === 'ev' && (ctx.sockets.exhaust || ctx.sockets.forced_induction || ctx.sockets.intake)) {
+    return no('Remove the exhaust, intake and forced induction first');
   }
   return OK;
 }

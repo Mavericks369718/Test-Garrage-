@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "generated": null,
+  "ktx2": false,
+  "assets": [],
+  "$comment": "Empty until you run `npm run assets:download && npm run assets:build`. With no entries the game renders procedural stand-ins for every asset."
+}

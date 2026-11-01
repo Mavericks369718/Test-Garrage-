@@ -1,35 +1,223 @@
 {
  "$comment": "Career jobs. car.kit = base kit from car-templates.json, car.sockets overrides, car.worn = sockets whose parts are worn (stats degraded until replaced). Objectives are checked against sim/stats.ts.",
  "jobs": [
-  { "id": "j01", "customer": "Arjun M.", "title": "Brakes feel soft", "brief": "Pedal goes long and it pulls left. Fix the brakes — all four corners.",
-    "car": { "kit": "A", "paint": "#5b6670", "worn": ["brake_FL", "brake_FR", "brake_RL", "brake_RR"] },
-    "budget": 80000, "objectives": [ { "type": "noWorn" }, { "type": "braking", "max": 55 } ], "reward": 60000, "unlocks": [] },
-  { "id": "j02", "customer": "Priya S.", "title": "+80 hp under ₹2L", "brief": "My Street V6 needs more punch for highway pulls. +80 hp, under ₹2L in parts.",
-    "car": { "kit": "A", "paint": "#7a1f1f" },
-    "budget": 200000, "objectives": [ { "type": "powerGain", "hp": 80 } ], "reward": 110000, "unlocks": ["wheelAssembly_semislick_b02"] },
-  { "id": "j03", "customer": "Rohan K.", "title": "New rubber", "brief": "Track day next weekend. I want grip — at least sport tyres.",
-    "car": { "kit": "A", "paint": "#e8e8e6" },
-    "budget": 220000, "objectives": [ { "type": "tireGrip", "min": 1.05 } ], "reward": 50000, "unlocks": [] },
-  { "id": "j04", "customer": "Meera D.", "title": "Respray: Signal Orange", "brief": "Full respray in metallic signal orange, deep clearcoat.",
-    "car": { "kit": "A", "paint": "#2d3a4a" },
-    "budget": 0, "requiresZone": "E", "objectives": [ { "type": "paint", "color": "#ff5a1f", "metallic": true } ], "reward": 75000, "unlocks": [] },
-  { "id": "j05", "customer": "Kabir T.", "title": "Sub-5 second sprint", "brief": "Make it do 0–100 km/h in under 5.0 s. Don't care how.",
-    "car": { "kit": "A", "paint": "#101214" },
-    "budget": 700000, "objectives": [ { "type": "zeroHundred", "max": 5.0 } ], "reward": 180000, "unlocks": ["engineAssembly_v12_engine_a01"] },
-  { "id": "j06", "customer": "Neha R.", "title": "Corner carver", "brief": "Handling score of 70+. It's for hill runs, not drag strips.",
-    "car": { "kit": "A", "paint": "#2f5d3a" },
-    "budget": 400000, "objectives": [ { "type": "handling", "min": 70 } ], "reward": 140000, "unlocks": [] },
-  { "id": "j07", "customer": "Vikram P.", "title": "Go electric", "brief": "Convert my GT to electric. Keep it rear-weight-sensible, 0–100 under 4.5 s.",
-    "car": { "kit": "B", "paint": "#c9ccd1" },
-    "budget": 950000, "objectives": [ { "type": "engineKind", "kind": "ev" }, { "type": "zeroHundred", "max": 4.5 } ], "reward": 260000, "unlocks": [] },
-  { "id": "j08", "customer": "Ishaan B.", "title": "Quarter-mile hero", "brief": "Rally car, but I want it to run a sub-11.0 s quarter mile.",
-    "car": { "kit": "C", "paint": "#1d4fa0" },
-    "budget": 900000, "objectives": [ { "type": "quarterMile", "max": 11.0 } ], "reward": 240000, "unlocks": [] },
-  { "id": "j09", "customer": "Ananya G.", "title": "Diet plan", "brief": "Bring the GT under 1,280 kg with driver, without losing power.",
-    "car": { "kit": "B", "paint": "#f2c230" },
-    "budget": 300000, "objectives": [ { "type": "massMax", "kg": 1280 }, { "type": "powerGain", "hp": 0 } ], "reward": 130000, "unlocks": [] },
-  { "id": "j10", "customer": "Dev & Sons", "title": "Autobahn spec", "brief": "Top speed over 300 km/h, and it must stop from 100 in under 34 m.",
-    "car": { "kit": "B", "paint": "#0e0f11" },
-    "budget": 1500000, "requiresZone": "G", "objectives": [ { "type": "topSpeed", "min": 300 }, { "type": "braking", "max": 34 } ], "reward": 450000, "unlocks": [] }
+  {
+   "id": "j01",
+   "customer": "Arjun M.",
+   "title": "Brakes feel soft",
+   "brief": "Pedal goes long and it pulls left. Fix the brakes — all four corners.",
+   "car": {
+    "kit": "A",
+    "paint": "#5b6670",
+    "worn": [
+     "brake_FL",
+     "brake_FR",
+     "brake_RL",
+     "brake_RR"
+    ]
+   },
+   "budget": 80000,
+   "objectives": [
+    {
+     "type": "noWorn"
+    },
+    {
+     "type": "braking",
+     "max": 55
+    }
+   ],
+   "reward": 60000,
+   "unlocks": []
+  },
+  {
+   "id": "j02",
+   "customer": "Priya S.",
+   "title": "+80 hp under ₹2L",
+   "brief": "My Street V6 needs more punch for highway pulls. +80 hp, under ₹2L in parts.",
+   "car": {
+    "kit": "A",
+    "paint": "#7a1f1f"
+   },
+   "budget": 200000,
+   "objectives": [
+    {
+     "type": "powerGain",
+     "hp": 80
+    }
+   ],
+   "reward": 110000,
+   "unlocks": [
+    "wheelAssembly_semislick_b02"
+   ]
+  },
+  {
+   "id": "j03",
+   "customer": "Rohan K.",
+   "title": "New rubber",
+   "brief": "Track day next weekend. I want grip — at least sport tyres.",
+   "car": {
+    "kit": "A",
+    "paint": "#e8e8e6"
+   },
+   "budget": 220000,
+   "objectives": [
+    {
+     "type": "tireGrip",
+     "min": 1.05
+    }
+   ],
+   "reward": 50000,
+   "unlocks": []
+  },
+  {
+   "id": "j04",
+   "customer": "Meera D.",
+   "title": "Respray: Signal Orange",
+   "brief": "Full respray in metallic signal orange, deep clearcoat.",
+   "car": {
+    "kit": "A",
+    "paint": "#2d3a4a"
+   },
+   "budget": 0,
+   "requiresZone": "E",
+   "objectives": [
+    {
+     "type": "paint",
+     "color": "#ff5a1f",
+     "metallic": true
+    }
+   ],
+   "reward": 75000,
+   "unlocks": []
+  },
+  {
+   "id": "j05",
+   "customer": "Kabir T.",
+   "title": "Sub-5 second sprint",
+   "brief": "Make it do 0–100 km/h in under 5.0 s. Don't care how.",
+   "car": {
+    "kit": "A",
+    "paint": "#101214"
+   },
+   "budget": 700000,
+   "objectives": [
+    {
+     "type": "zeroHundred",
+     "max": 5.0
+    }
+   ],
+   "reward": 180000,
+   "unlocks": [
+    "engineAssembly_v12_engine_a01"
+   ]
+  },
+  {
+   "id": "j06",
+   "customer": "Neha R.",
+   "title": "Corner carver",
+   "brief": "Handling score of 70+. It's for hill runs, not drag strips.",
+   "car": {
+    "kit": "A",
+    "paint": "#2f5d3a"
+   },
+   "budget": 550000,
+   "objectives": [
+    {
+     "type": "handling",
+     "min": 70
+    }
+   ],
+   "reward": 140000,
+   "unlocks": []
+  },
+  {
+   "id": "j07",
+   "customer": "Vikram P.",
+   "title": "Go electric",
+   "brief": "Convert my GT to electric. Keep it rear-weight-sensible, 0–100 under 4.5 s.",
+   "car": {
+    "kit": "B",
+    "paint": "#c9ccd1"
+   },
+   "budget": 950000,
+   "objectives": [
+    {
+     "type": "engineKind",
+     "kind": "ev"
+    },
+    {
+     "type": "zeroHundred",
+     "max": 4.5
+    }
+   ],
+   "reward": 260000,
+   "unlocks": []
+  },
+  {
+   "id": "j08",
+   "customer": "Ishaan B.",
+   "title": "Quarter-mile hero",
+   "brief": "Rally car, but I want it to run a sub-11.0 s quarter mile.",
+   "car": {
+    "kit": "C",
+    "paint": "#1d4fa0"
+   },
+   "budget": 900000,
+   "objectives": [
+    {
+     "type": "quarterMile",
+     "max": 11.0
+    }
+   ],
+   "reward": 240000,
+   "unlocks": []
+  },
+  {
+   "id": "j09",
+   "customer": "Ananya G.",
+   "title": "Diet plan",
+   "brief": "Bring the GT under 1,300 kg with driver, without losing power.",
+   "car": {
+    "kit": "B",
+    "paint": "#f2c230"
+   },
+   "budget": 300000,
+   "objectives": [
+    {
+     "type": "massMax",
+     "kg": 1300
+    },
+    {
+     "type": "powerGain",
+     "hp": 0
+    }
+   ],
+   "reward": 130000,
+   "unlocks": []
+  },
+  {
+   "id": "j10",
+   "customer": "Dev & Sons",
+   "title": "Autobahn spec",
+   "brief": "Top speed over 300 km/h, and it must stop from 100 in under 34 m.",
+   "car": {
+    "kit": "B",
+    "paint": "#0e0f11"
+   },
+   "budget": 1500000,
+   "requiresZone": "G",
+   "objectives": [
+    {
+     "type": "topSpeed",
+     "min": 300
+    },
+    {
+     "type": "braking",
+     "max": 34
+    }
+   ],
+   "reward": 450000,
+   "unlocks": []
+  }
  ]
 }
